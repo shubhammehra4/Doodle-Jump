@@ -219,8 +219,15 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function home() {
+        clearInterval(upTimerId);
+        clearInterval(downTimerId);
+        clearInterval(leftTimerId);
+        clearInterval(rightTimerId);
+        isJumping = true;
         isGameOver = false;
         platforms = [];
+        isGoingLeft = false;
+        isGoingRight = false;
         clearGrid();
         const homeScreen = document.querySelector("#home");
         const homeContent = homeScreen.content.cloneNode(true);
