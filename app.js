@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
+    var Music;
     const grid = document.querySelector(".grid");
     const doodler = document.createElement("div");
     // doodler.src = "doodler.png";
@@ -167,6 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function gameOver() {
         console.log("Game Over!");
         isGameOver = true;
+        Music.stop();
         clearInterval(upTimerId);
         clearInterval(downTimerId);
         clearInterval(leftTimerId);
@@ -188,8 +190,26 @@ document.addEventListener("DOMContentLoaded", () => {
         toHome.addEventListener("click", home);
     }
 
+    function sound(src) {
+        this.sound = document.createElement("audio");
+        this.sound.src = src;
+        this.sound.setAttribute("preload", "auto");
+        this.sound.setAttribute("controls", "none");
+        this.sound.style.display = "none";
+        this.sound.loop = true;
+        document.body.appendChild(this.sound);
+        this.play = function () {
+            this.sound.play();
+        };
+        this.stop = function () {
+            this.sound.pause();
+        };
+    }
+
     function start() {
         if (!isGameOver) {
+            Music = new sound("doodle-song.mp3");
+            Music.play();
             createPlatforms();
             createDoodler();
             setInterval(movePlatforms, 30);
