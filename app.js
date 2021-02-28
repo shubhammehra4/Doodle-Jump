@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const homeScreen = document.querySelector("#home");
-    const homeContent = homeScreen.content.cloneNode(true);
     const grid = document.querySelector(".grid");
     const doodler = document.createElement("div");
+    // doodler.src = "doodler.png";
+    const doolerImage = document.createElement("img");
+    doolerImage.src = "doodler.png";
+    doodler.appendChild(doolerImage);
     let startPoint = 200;
     let doodlerLeftSpace = 50;
     let doodlerBottomSpace = startPoint;
@@ -103,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     doodlerLeftSpace <= p.left + 85 &&
                     !isJumping
                 ) {
-                    console.log("landed");
+                    console.log("Landed!");
                     startPoint = doodlerBottomSpace;
                     jump();
                 }
@@ -163,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function gameOver() {
-        console.log("game Over");
+        console.log("Game Over!");
         isGameOver = true;
         clearInterval(upTimerId);
         clearInterval(downTimerId);
@@ -175,6 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.appendChild(gameOverContent);
         let scoreDisplay = document.querySelector("#score");
         let restartButton = document.querySelector("#start");
+        let toHome = document.querySelector("#toHome");
         restartButton.addEventListener("click", function () {
             clearGrid();
             isGameOver = false;
@@ -182,6 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
             start();
         });
         scoreDisplay.innerHTML = score;
+        toHome.addEventListener("click", home);
     }
 
     function start() {
@@ -194,13 +198,17 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    //? Button
-
-    grid.appendChild(homeContent);
-    let startButton = document.querySelector("#start");
-    startButton.addEventListener("click", function () {
-        console.log("hello");
+    function home() {
         clearGrid();
-        start();
-    });
+        const homeScreen = document.querySelector("#home");
+        const homeContent = homeScreen.content.cloneNode(true);
+        grid.appendChild(homeContent);
+        let startButton = document.querySelector("#start");
+        startButton.addEventListener("click", function () {
+            console.log("hello");
+            clearGrid();
+            start();
+        });
+    }
+    home();
 });
