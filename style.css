@@ -5,6 +5,7 @@
 }
 body {
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -104,4 +105,16 @@ body {
     57%  { transform: scale(1,1)      translateY(-7px); }
     64%  { transform: scale(1,1)      translateY(0); }
     100% { transform: scale(1,1)      translateY(0); }
+}
+
+.control-desc {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.control-desc h3 {
+    margin: 0 10px;
+    color: rgb(4, 4, 221);
+    font-size:xx-large;
 }
