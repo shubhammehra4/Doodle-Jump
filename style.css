@@ -50,10 +50,17 @@ body {
 }
 
 .doodler {
-    /* width: 100px; */
+    width: 60px;
     height: 85px;
-    /* background-color: red; */
+    background-color: red;
     position: absolute;
+}
+
+.doodler img {
+    height: 100%;
+    /* position: relative; */
+    margin: 0 -40px;
+    /* height: 100px; */
 }
 
 .platform {
@@ -62,4 +69,8 @@ body {
     background-color: #30694B;
     border-radius: 20px;
     position: absolute;
+}
+
+#score {
+    color: red;
 }
