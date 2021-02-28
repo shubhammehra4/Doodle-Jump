@@ -9,6 +9,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: rgb(245, 245, 232);
 }
 
 .home-logo{
@@ -61,7 +62,7 @@ body {
     height: 800px;
     background-size: 40px 40px;
     background-image: linear-gradient(to right, rgb(218, 218, 218) 1px, transparent 1px), linear-gradient(to bottom, rgb(218, 218, 218) 1px, transparent 1px);
-    background-color: lemonchiffon;
+    background-color: rgb(242, 236, 181);
     position: relative;
     text-align: center;
     overflow: hidden;
