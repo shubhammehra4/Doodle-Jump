@@ -76,9 +76,7 @@ body {
 
 .doodler img {
     height: 100%;
-    /* position: relative; */
     margin: 0 -40px;
-    /* height: 100px; */
 }
 
 .platform {
@@ -117,4 +115,8 @@ body {
     margin: 0 10px;
     color: rgb(4, 4, 221);
     font-size:xx-large;
+}
+.control-desc button {
+    color: white;
+    font-size:x-large;
 }

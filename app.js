@@ -1,8 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
-    var Music;
     const grid = document.querySelector(".grid");
     const doodler = document.createElement("div");
-    // doodler.src = "doodler.png";
     const doolerImage = document.createElement("img");
     doolerImage.src = "doodler.png";
     doodler.appendChild(doolerImage);
@@ -20,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let leftTimerId;
     let rightTimerId;
     let score = 0;
+    let soundPlaying = false;
+    var Music = new sound("doodle-song.mp3");
 
     function clearGrid() {
         while (grid.firstChild) {
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 doodlerLeftSpace -= 5;
                 doodler.style.left = doodlerLeftSpace + "px";
             } else moveLeft();
-        }, 25);
+        }, 20);
     }
 
     function moveRight() {
@@ -141,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 doodlerLeftSpace += 5;
                 doodler.style.left = doodlerLeftSpace + "px";
             } else moveStraight();
-        }, 25);
+        }, 20);
     }
 
     function moveStraight() {
@@ -168,7 +168,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function gameOver() {
         console.log("Game Over!");
         isGameOver = true;
-        Music.stop();
         clearInterval(upTimerId);
         clearInterval(downTimerId);
         clearInterval(leftTimerId);
@@ -208,8 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function start() {
         if (!isGameOver) {
-            Music = new sound("doodle-song.mp3");
-            Music.play();
+            score = 0;
             createPlatforms();
             createDoodler();
             setInterval(movePlatforms, 30);
@@ -234,10 +232,21 @@ document.addEventListener("DOMContentLoaded", () => {
         grid.appendChild(homeContent);
         let startButton = document.querySelector("#start");
         startButton.addEventListener("click", function () {
-            console.log("hello");
+            console.log("Hello Let's Play!");
             clearGrid();
             start();
         });
     }
     home();
+    const play = document.querySelector("#soundToggle");
+    play.addEventListener("click", function () {
+        soundPlaying = !soundPlaying;
+        if (soundPlaying) {
+            Music.play();
+            play.innerHTML = "🔊";
+        } else {
+            Music.stop();
+            play.innerHTML = "🔈";
+        }
+    });
 });
