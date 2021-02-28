@@ -219,6 +219,8 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function home() {
+        isGameOver = false;
+        platforms = [];
         clearGrid();
         const homeScreen = document.querySelector("#home");
         const homeContent = homeScreen.content.cloneNode(true);
