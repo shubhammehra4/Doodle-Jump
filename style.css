@@ -10,7 +10,24 @@ body {
     height: 100vh;
 }
 
+.home-logo{
+    margin-top: auto;
+    margin-left: auto;
+    height: 25%;
+    align-self: flex-end;
+    justify-self: end;
+    animation-duration: 2s;
+        animation-iteration-count: infinite;
+}
+
 .heading {
+    margin-top: auto;
+    font-size: 65px;
+    color: red;
+    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.heading2 {
     font-size: 65px;
     color: red;
     font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -52,7 +69,7 @@ body {
 .doodler {
     width: 60px;
     height: 85px;
-    background-color: red;
+    /* background-color: red; */
     position: absolute;
 }
 
@@ -73,4 +90,18 @@ body {
 
 #score {
     color: red;
+}
+
+.bounce {
+    animation-name: bounce;
+    animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+}
+@keyframes bounce {
+    0%   { transform: scale(1,1)      translateY(0); }
+    10%  { transform: scale(1.1,.9)   translateY(0); }
+    30%  { transform: scale(.9,1.1)   translateY(-100px); }
+    50%  { transform: scale(1.05,.95) translateY(0); }
+    57%  { transform: scale(1,1)      translateY(-7px); }
+    64%  { transform: scale(1,1)      translateY(0); }
+    100% { transform: scale(1,1)      translateY(0); }
 }
