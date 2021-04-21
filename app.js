@@ -67,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function movePlatforms() {
-        if (doodlerBottomSpace > 250) {
+        if (doodlerBottomSpace > 250 && isJumping) {
             platforms.forEach((p) => {
                 p.bottom -= 5;
                 let visual = p.visual;
